@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> Google Plus Login Page </title>
+    <meta name="google-signin-client_id" content="782405843874-6fnskg1i5h9hu6uv6rqmpakh2go6b7t0.apps.googleusercontent.com">
+  </head>
+  <body>
+
+    <div class="g-signin2" data-onsuccess="onSignIn">
+
+      <button type="button" onclick="onSignIn">Click Me!</button>
+
+    </div>
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script>
+    function onSignIn(googleUser) {
+  var profile = googleUser.getBasicProfile();
+  console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+  console.log('Name: ' + profile.getName());
+  console.log('Image URL: ' + profile.getImageUrl());
+  console.log('Email: ' + profile.getEmail());
+}
+</script>
+  </body>
+  </html>
+</html>
