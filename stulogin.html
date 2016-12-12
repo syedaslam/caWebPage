@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ca Login Form </title>
+  <style type="text/css">
+ body{background-image:url(images/max.jpg);
+      background-repeat:no-repeat;
+	  background-size:cover;
+	  }
+#yes{width:250px;
+     height:100px;
+     background-color:rgba(0,0,0,0.3);
+	 margin:0 auto;
+	 padding:100px;
+	 border-radius:20px;
+	 margin-top:10%;
+	 box-shadow:inset 4px 4px rgba(0,0,0,0.2);
+	color:#fff;}
+h1{ text-align:center;
+	margin-top:-30%;}
+#in{background-image:url(images/im.PNG);
+   background-repeat:no-repeat;
+   background-size:20px;
+   background-position:1px;
+    font-size:20px;
+    margin-top:3px;
+   text-align:right;
+	  }
+#out{background-image:url(images/index.jpg);
+   background-repeat:no-repeat;
+   background-size:20px;
+   background-position:1px;
+    font-size:20px;
+    margin-top:3px;
+   text-align:right;
+	  }
+#on{background-image:url(images/lock.jpg);
+   background-repeat:no-repeat;
+   background-size:20px;
+   background-position:1px;
+    font-size:20px;
+    margin-top:3px;
+   text-align:right;
+	  }
+form{font-size:20px;}
+h4{margin-left:20%;
+   color:#ffffff;
+   }
+a{color:red;}
+#in:hover,#out:hover,#on:hover
+              {font-size:23px;
+			  }
+#go:hover{margin-left:2%;
+         height:30px;
+		 width:50px;
+		 font-size:25px;
+		 margin-top:1%;
+		 color:blue;}
+</style>                                                                
+<body>
+<h4> don't have an account<a href="reg.html"> register</a></h4>
+<div id="yes">
+<h1>log in</h1>
+ <form action="http://pamda1ver2.16mb.com/ca/postData.php" method="post">
+     userName: <input id="in" type=text name="user" required><br>
+     Email :<input id="out" type=email name="Email" required><br>
+     Password:<input id="on" type=password name="pass" required><br>
+               <input id="go" type="submit" value="Go!"><br>
+</form>
+</div>
+
+</body>
