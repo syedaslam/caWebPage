@@ -496,19 +496,19 @@ function print_state(state_id, state_index){
 </script>
 </head>
 <body>
-<form>
+<form action="http://localhost/local.php" method="post">
 <h1>Register here </h1>
 <div>
 <h2>UserName
- <input id="a" type="    text" name="" required > 
+ <input id="a" type="text" name="uName" required > 
 &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  Email
- <input id="b" type=email name="" required > </h2>
+ <input id="b" type=email name="eMail" required > </h2>
 <h2>Phone No
-<input id="c" type="num" name="" required>
+<input id="c" type="num" name="phone" required>
 &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Alternate Email
-<input id="d" type=email name="" required ></h2>
+<input id="d" type=email name="altemail" required ></h2>
 <h2>Degree
-<select id="e" required>
+<select id="e" name="degree" required>
 <option></option>
 <option>B Tech</option>
 <option>M Tech</option>
@@ -516,8 +516,8 @@ function print_state(state_id, state_index){
 <option>MBA</option>
 <option>xxx</option>
 </select>
-&nbspBranch
-<select id="f" required>
+&nbsp Branch
+<select id="f" name="branch" required>
 	<option></option>
 	<option>ECE</option>
 	<option>EEE</option>
@@ -527,14 +527,14 @@ function print_state(state_id, state_index){
 </select>
 &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp 
 &nbsp &nbsp Gender
-<form  name=myform>
-&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp <input id="g" type="radio" name=myradio value="1">male
-&nbsp &nbsp &nbsp <input id="g" type="radio" name=myradio value="2">female
+<form required>
+&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp <input id="g" type="radio" name="gender"  value="1">male
+&nbsp &nbsp &nbsp <input id="g" type="radio" value="2">female
 </form>
 </h2>
-<h2>College Code<input id="h" type="text" required>
+<h2>College Code<input id="h" name="Ccode" type="text" required>
 &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp  Year of passing
-<select id="i" name="">
+<select id="i" name="yop" required>
     	<option value="-"></option>
     	<option value="2011">2017</option>
     	<option value="2011">2016</option>
@@ -596,8 +596,9 @@ function print_state(state_id, state_index){
     	<option value="1960">1960</option>
     	<option value="1959">1959</option>
     </select>
-<h2>Password<input id="j" type="password" required>
-&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp &nbsp Date of Birth  <select id="k" name="" required>
+<h2>Password<input id="j" type="password" name="Pword" required>
+&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp &nbsp Date of Birth 
+ <select id="k" size="1" name="mdob" value="month" required>
     	<option value="-">month</option>
     	<option value="1">January</option>
     	<option value="2">Febuary</option>
@@ -612,7 +613,7 @@ function print_state(state_id, state_index){
     	<option value="11">November</option>
     	<option value="12">December</option>
     </select>
-     <select id="l" name="" required>
+     <select id="l" size="1" name="ddob" value="date" required>
     	<option value="-">Date</option>
     	<option value="1">1</option>
     	<option value="2">2</option>
@@ -646,7 +647,7 @@ function print_state(state_id, state_index){
     	<option value="30">30</option>
     	<option value="31">31</option>
     </select>
-        <select id="m" name="" required>
+        <select id="m" size="1" name="ydob" value="year" required>
     	<option value="-">year</option>
     	<option value="2011">2017</option>
     	<option value="2011">2016</option>
