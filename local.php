@@ -8,11 +8,9 @@ body{background-image:url(images/exm.jpg);
 </style>
 </head>
 <body>
-<h1>your regrestration in successfull
-<a href="http://localhost/stulogin.html">chick here to login</a></h1>
+<h1>your registration in successfull
+<a href="http://localhost/stulogin.html">click here to login</a></h1>
 <?php
-echo "your regrestration in successfull<br> ";
-
 
 $uName     =  $_POST['uName'];
 
@@ -26,12 +24,14 @@ $degree    = $_POST['degree'];
 
 $branch    =  $_POST['branch'];
 
-$gender    = $_POST['gender'];
+
+$gender   = $_POST['gender'];
+
 if ($gender == 1){
-	$gender = "MALE";
+	$gender = 'MALE';
 	
 }else{
-	$gender = "FEMALE";
+	$gender = 'FEMALE';
 }
 
 $Ccode     =  $_POST['Ccode'];
@@ -40,25 +40,20 @@ $yop       = $_POST['yop'];
 
 $Pword     =  $_POST['Pword'];
 
- 
-
-$edob  =  $_POST['ydob'].$_POST['mdob'].$_POST['ddob'];
+$edob  =  $_POST['edob'];
 
 $country   =  $_POST['country'];
 
 $state     =  $_POST['state'];
 
 
-echo 'userName:';
+echo '<h2>userName:-';
 
-echo $uName;
+echo  $uName.'</h2>';
 
-echo '<br>';
+echo '<h2>email:-';
 
-
-echo 'email:';
-
-echo $eMail;
+echo $eMail.'</h2>';
 
 echo '<br>';
 
