@@ -1,30 +1,40 @@
+<html>
+<head>
+<style type="text/css">
+body{
+	background-image:url(images/books.jpg);
+	background-repeat:no-repeat;
+	background-size:cover;
+}
+h3{
+	color:#057;
+	margin-left:10%;
+}
+h2{
+	color:white;
+	text-align:center;
+}
+</style>
+</head>
 <?php
-
-$serverName = "mysql.hostinger.in";
-$userName = "u576780510_anil";
-$password = "123456";
-$db = "u576780510_padma";
+$host="localhost";
+$user="root";
+$password="";
+$db="virtualm_jobportal";
 //Create Connection
-$conn = new mysqli($serverName,$userName,$password,$db);
+$conn = new mysqli($host,$user,$password,$db);
 if($conn ->connect_error){
-	die("Connection Failed: ".$conn->connect_error);
-	}
-echo "Connected successfully";
-
-$search_value=$_POST["search"];
-
+die("Connection Failed: ".$conn->connect_error);
+}
+echo "<h2>Retrieve data from database<br></h2>";
+//$search_value=$_POST["register"];
 if($conn->connect_error){
-    echo 'Connection Faild: '.$con->connect_error;
-    }else{
-        $sql="select * from information where First_Name like '%$search_value%'";
-
-        $res=$conn->query($sql);
-
-        while($row=$res->fetch_assoc()){
-            echo 'First_name:  '.$row["email"];
-
-
-            }
-
-        }
+echo 'Connection Faild: '.$con->connect_error;
+}else{
+$sql="SELECT * FROM `tags`";
+$res=$conn->query($sql);
+while($row=$res->fetch_assoc()){
+echo '<h3>'.$row["tag"].'<br></h3>';
+}
+}
 ?>
