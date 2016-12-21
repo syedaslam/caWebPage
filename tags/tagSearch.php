@@ -8,7 +8,7 @@ $conn = new mysqli($serverName,$userName,$password,$db);
 if($conn ->connect_error){
 	die("Connection Failed: ".$conn->connect_error);
 	}
-echo "Connected successfully";
+//echo "Connected successfully";
 
 $jsonData = array();
 
@@ -18,7 +18,7 @@ if($conn->connect_error){
         $sql="select * from tags";
         $res=$conn->query($sql);
          while ($row = $res->fetch_assoc()) {
-        
+
             // echo $row['tag_id'];
             // echo $row['tag'];
            $jsonData[$row['tag_id']]=$row['tag'];
@@ -26,4 +26,4 @@ if($conn->connect_error){
            echo json_encode($jsonData); //Array to Json Conversion
 
         }
-?>	
+?>
