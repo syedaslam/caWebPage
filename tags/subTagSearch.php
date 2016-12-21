@@ -12,7 +12,7 @@ if($conn ->connect_error){
 
 $jsonData = array();
 
-$tagId = 5;
+$tagId = $_POST['tag'];
 
 if($conn->connect_error){
     echo 'Connection Faild: '.$con->connect_error;
