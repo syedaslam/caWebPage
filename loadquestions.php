@@ -19,7 +19,7 @@ $subtagId  = $_POST['subtagid'];
 if($conn->connect_error){
     echo 'Connection Faild: '.$con->connect_error;
     }else{
-        $sql="select * from questiontagsnew where sub_tag_id = ".$subtagId."=".tag;
+        $sql="select * from questiontagsnew where sub_tag_id = ".$subtagId."=".$tag;
         $res=$conn->query($sql);
         while($row = $res->fetch_assoc()) {
 
