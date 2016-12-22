@@ -1,3 +1,7 @@
+/*
+Author : Kunchala Anil
+Email : anilkunchalaece@gmail.com
+*/
 $(document).ready(function(){
     $("#tagSelectDiv").hide();
     $("#subTagSelectDiv").hide();

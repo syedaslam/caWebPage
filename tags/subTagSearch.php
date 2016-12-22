@@ -1,4 +1,8 @@
 <?php
+/*
+Author : Kunchala Anil
+Email : anilkunchalaece@gmail.com
+*/
 $serverName = "mysql.hostinger.in";
 $userName = "u576780510_anil";
 $password = "123456";
