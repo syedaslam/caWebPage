@@ -9,26 +9,25 @@ if($conn ->connect_error){
 	}
 //echo "Connected successfully";
 
-$jsonData = array();
+$queData = array();
 
-$tagId = $_POST['tag'];
-$subtagId  = $_POST['subtagid'];
+$tagId = 6; //$_POST['tag'];
 
-
+$subTagId = 9; //$_POST['subtagname'];
 
 if($conn->connect_error){
     echo 'Connection Faild: '.$con->connect_error;
     }else{
-        $sql="select * from questiontagsnew where sub_tag_id = ".$subtagId."=".$tag;
-        $res=$conn->query($sql);
-        while($row = $res->fetch_assoc()) {
+        $sql='SELECT * FROM questiontagsnew where tag_id='.$tagId.' and sub_tag_id ='.$subTagId;
+		$res=$conn->query($sql);
+		$index = 1;
+         while ($row = $res->fetch_assoc()) {
 
-            // echo $row['tag_id'];
-            // echo $row['tag'];
-		$jsonData[$row['question_id']]=$row['exam_id'];
+
+           $queData[$index]=$row['question_id'];
+			$index++;
  }
-           echo json_encode($jsonData); 
-		   //Array to Json Conversion
 
+ echo json_encode($queData);
         }
 ?>
