@@ -65,7 +65,7 @@ a    {color:red;}
 		height:25px;
 		width:200px;
 		border-radius:4px;
-		margin-left:11.5%;
+		margin-left:10.7%;
 		font-size:17px;
 		text-align:right;
    }
@@ -442,28 +442,7 @@ function print_state(state_id, state_index){
 	}
 }
 
-function val(){
-           if(frm.phone.value=="")
-		   {
-		   alert("please enter the phone number");
-		   frm.phone.focus();
-		   return false;
-		   }
-		   if(isNaN(frm.phone.value))
-		   {
-		    alert("invalid phone number");
-			frm.phone.focus();
-			return false;
-		   }
-		   if((frm.phone.value).length<10)
-		   {
-		   alert("phone should be minimum 10 digits");
-		   frm.phone.focus();
-		   return false;
-		   }
-		   return true;
-		   }
-		   
+
 </script>
 </head>
 <body>
@@ -471,7 +450,7 @@ function val(){
 <h1>Register here </h1>
 <div>
 <h2>UserName
- <input id="a" type="text" name="uName" required > 
+ <input id="a" type="text" name="uName" required> 
 &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
   E-mail<input type="email" id="eMail" name="eMail" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required>
   <script>
@@ -482,7 +461,9 @@ function myFunction() {
 </script>
 <form name="frm" method="post" action="thankyou.htm">
 <h2>Phone No
-<input id="c" type="text" name="phone" >
+<input id="c" type="text" name="phone" pattern="[0-9]{10}"
+oninvalid="setCustomValidity('Plz enter 10 digits ')"
+    onchange="try{setCustomValidity('')}catch(e){}" required />
 &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp Alternate Email
 <input type="email" id="altemail" name="altemail" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" required>
 <script>
@@ -513,8 +494,9 @@ function myFunction() {
 &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp 
 &nbsp &nbsp 
 <form required>Gender
-&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp <input id="g" type="radio" name="gender"  value="1">male
-&nbsp &nbsp &nbsp <input id="g" type="radio" value="2">female
+&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp 
+<input id="g" type="radio" name="gender"  value="1">male
+&nbsp &nbsp &nbsp <input id="g"  type="radio" name="gender" value="2">female
 </form>
 </h2>
 <h2>College Code<input id="h" name="Ccode" type="text" required>
@@ -581,7 +563,10 @@ function myFunction() {
     	<option value="1960">1960</option>
     	<option value="1959">1959</option>
     </select>
-<h2>Password<input id="j" type="password" name="Pword" required>
+<h2>Password<input id="j" type="password" name="Pword" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}"oninvalid="setCustomValidity('at least one number, one lowercase and one uppercase letter ')"
+    onchange="try{setCustomValidity('')}catch(e){}" />
+
+
 &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp &nbsp Date of Birth 
 <input id="k" type="date" name="edob" >
  </h2>
@@ -592,7 +577,7 @@ City/District/State:
 <script language="javascript">print_country("country");
 </script>
 </h2>
-<input id="smt" type="Submit"  value="submit">
+<input id="smt" type="Submit"  value="submit" onsubmit="return validation()"/>
 </div>
 <h4>already have an account<a href="stulogin.html"> login</a></h4>
 <p>CONTACT US</p>
