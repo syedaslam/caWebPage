@@ -1,55 +1,36 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title> Tags Selection Example</title>
+        <title>Tags Selection Example</title>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
         <script src="tagSelect.js"></script>
     </head>
     <body>
-        <p> Select the Option Tag </p>
+        <p>Select the Option Tag </p>
         <button id="tag">Tag Select</button>
         <div id="tagSelectDiv">
-
-            <select id="selectForTag">
-
-            </select>
-
+            <select id="selectForTag"></select>
         </div>
-
         <div id="subTagSelectDiv">
-		
-        <select id="selectForSubTag">
-            
-        </select>
-		
+            <select id="selectForSubTag"></select>
         </div>
-		
-		<button id="qust">Take test</button>
-		
-		<div id="mcqDiv">
-		
-		</div>
-		
-		<div id="queDiv">
-		
-		</div>
-		
-		<div id="optDiv">
-		
-		</div>
-		
-		
-		<div id="queoptDiv">
-		
-		<input id="opt1" type="radio" type="1"/><br>
-		<input id="opt2" type="radio" type="2"/><br>
-		<input id="opt3" type="radio" type="3"/><br>
-		<input id="opt4" type="radio" type="4"/><br>
-		<input id="opt5" type="radio" type="5"/><br>
-		
-		</div>
-		
-		
-		
+        <button id="qust">Take test</button>
+        <div id="mcqDiv">
+            <div id="queDiv"></div>
+            <input type="radio" id="queopt1" name="opt"></input>
+            <label for="queOpt1" id="opt1Label"></label>
+            <br>
+            <input type="radio" id="queopt2" name="opt"></input>
+            <label for="queOpt2" id="opt2Label"></label>
+            <br>
+            <input type="radio" id="queopt1" name="opt"></input>
+            <label for="queOpt3" id="opt3Label"></label>
+            <br>
+            <input type="radio" id="queopt4" name="opt"></input>
+            <label for="queOpt4" id="opt4Label"></label>
+			<br>
+			<input id="submit" type="submit" value="submit"/>
+			<input id="next" type="submit" value="next"/>
+        </div>
     </body>
 </html>
