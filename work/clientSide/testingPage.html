@@ -14,7 +14,9 @@
 $("#tagSelect").click(function(){
   console.log("buttonClicked");
   $.ajax({
+      type : "POST",
       url : "ca/getTags.php",
+      data : {key:"tag"},
       success: function(data){
         console.log(data);
       }
