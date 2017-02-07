@@ -14,8 +14,15 @@
 $("#tagSelect").click(function(){
   console.log("buttonClicked");
   $.ajax({
-      url : ""
+      url : "ca/getTags.php",
+      success: function(data){
+        console.log(data);
+      }
       });
+
+      $(document).ajaxError(function(event,request,settings){
+        alert("there is a Error in Ajax Call")
+      })
 });
 </script>
 
