@@ -11,42 +11,72 @@
 
 
     <div id="tagSelectDiv">
-        <select id="selectForTag">
-       </select>
+        <select id="selectForTag" >  </select>
     </div>
 
+
+    <div id="subTagSelectDiv">
+        <select id="selectForSubTag" multiple> </select>
+    </div>
 
 
     <script>
         $(document).ready(function() {
-                $("#tagSelectDiv").hide();
+                    $("#tagSelectDiv").hide();
+                    $("#subTagSelectDiv").hide();
+
+                    $("#tagSelect").click(function() {
+                        console.log("buttonClicked");
+                        $.ajax({
+                            type: "POST",
+                            url: "ca/getTags.php",
+                            data: {
+                                key: "tag"
+                            },
+                            success: function(data) {
+                                console.log("Tags :: " + data);
+                                data = JSON.parse(data);
+                                $("#selectForTag").append('<option value="0" selected="selected"> Branch </option>')
+
+                                for (var key in data) {
+                                    $("#selectForTag").append('<option value="' + key + '">' + data[key] + "</option>");
+                                }
+
+                                $("#tagSelectDiv").show();
+
+                            },
+                        });
+                      })
 
 
-                $("#tagSelect").click(function() {
-                    console.log("buttonClicked");
-                    $.ajax({
-                        type: "POST",
-                        url: "ca/getTags.php",
-                        data: {
-                            key: "tag"
-                        },
-                        success: function(data) {
-                            console.log("Tags" + data);
-                            data = JSON.parse(data);
-                            for (var key in data) {
-                                $("#selectForTag").append('<option value="' + key + '">' + data[key] + "</option>");
-                            }
+                        $('#selectForTag').on('change', function() {
+                            console.log("Tag option Changed");
 
-                            $("#tagSelectDiv").show();
+                            $("#selectForSubTag option").each(function() {
+                                $(this).remove();
+                            });
 
-                        }
-                    });
+                            $.ajax({
+                                type: "POST",
+                                url: "ca/getTags.php",
+                                data: {
+                                    key: "subTag", val : $('#selectForTag').val()
+                                },
+                                success: function(data) {
 
-                    $(document).ajaxError(function() {
-                        alert("there is a Error in Ajax Call");
-                    });
-                });
-            });
+                                    console.log("Sub Tags ::" + data);
+                                    data = JSON.parse(data);
+
+                                },
+
+                            });
+                          });
+
+
+                            $(document).ajaxError(function() {
+                                alert("there is a Error in Ajax Call");
+                            });
+                        });
     </script>
 
 </body>

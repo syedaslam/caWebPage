@@ -12,6 +12,16 @@ switch($key){
          echo json_encode($jsonData); //Array to Json Conversion
   break;
 
+  case "subTag":
+
+  $sql="select * from subtags where tagid =".$_POST['val'];
+  $res=$conn->query($sql);
+   while ($row = $res->fetch_assoc()) {
+     $jsonData[$row['subtagid']]=$row['subtagname'];
+  }
+         echo json_encode($jsonData); //Array to Json Conversion
+  break;
+
   default:
   $sql="error";
 }
