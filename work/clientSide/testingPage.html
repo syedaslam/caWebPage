@@ -67,6 +67,12 @@
                                     console.log("Sub Tags ::" + data);
                                     data = JSON.parse(data);
 
+                                    for (var key in data) {
+                                        $("#selectForSubTag").append('<option value="' + key + '">' + data[key] + "</option>");
+                                    }
+                                    $("#subTagSelectDiv").show();
+
+
                                 },
 
                             });
