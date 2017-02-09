@@ -1,32 +1,54 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <title>Testing Page </title>
     <script src="sources/script/jquery.min.js"></script>
-  </head>
+</head>
 
-  <body>
-     <button id="tagSelect">Select Subject </button>
+<body>
+    <button id="tagSelect">Select Subject </button>
+
+
+    <div id="tagSelectDiv">
+        <select id="selectForTag">
+       </select>
+    </div>
 
 
 
-<script>
-$("#tagSelect").click(function(){
-  console.log("buttonClicked");
-  $.ajax({
-      type : "POST",
-      url : "ca/getTags.php",
-      data : {key:"tag"},
-      success: function(data){
-        console.log(data);
-      }
-      });
+    <script>
+        $(document).ready(function() {
+                $("#tagSelectDiv").hide();
 
-      $(document).ajaxError(function(event,request,settings){
-        alert("there is a Error in Ajax Call")
-      })
-});
-</script>
 
-  </body>
+                $("#tagSelect").click(function() {
+                    console.log("buttonClicked");
+                    $.ajax({
+                        type: "POST",
+                        url: "ca/getTags.php",
+                        data: {
+                            key: "tag"
+                        },
+                        success: function(data) {
+                            console.log("Tags" + data);
+                            data = JSON.parse(data);
+                            for (var key in data) {
+                                $("#selectForTag").append('<option value="' + key + '">' + data[key] + "</option>");
+                            }
+
+                            $("#tagSelectDiv").show();
+
+                        }
+                    });
+
+                    $(document).ajaxError(function() {
+                        alert("there is a Error in Ajax Call");
+                    });
+                });
+            });
+    </script>
+
+</body>
+
 </html>
