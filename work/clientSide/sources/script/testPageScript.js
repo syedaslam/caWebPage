@@ -1,2 +1,1 @@
-var noOfSubtagsInTestingPageScript = testingPageScript.noOfSubTags;
-console.log(noOfSubtagsInTestingPageScript);
+console.log(localStorage.getItem("noOfSubTags"));

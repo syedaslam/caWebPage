@@ -62,6 +62,7 @@
                         var subTagsArray = $("#selectForSubTag").val();
                         var noOfSubTags = subTagsArray.length;
                         var questionForSubTag = noOfQuestions/noOfSubTags;
+                        localStorage.setItem("noOfSubTags",noOfSubTags);
 
 
                       })
