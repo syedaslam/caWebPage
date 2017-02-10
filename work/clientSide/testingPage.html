@@ -3,11 +3,18 @@
 
 <head>
     <title>Testing Page </title>
+     <meta charset="UTF-8">
     <script src="sources/script/jquery.min.js"></script>
 </head>
 
 <body>
-    <button id="tagSelect">Select Subject </button>
+
+    <select id="noOfQuestions">
+      <option value="0" selected>No Of Question</option>
+      <option value="10"> 10 </option>
+      <option value="20"> 20 </option>
+      <option value="30"> 30 </option>
+    </select>
 
 
     <div id="tagSelectDiv">
@@ -19,14 +26,19 @@
         <select id="selectForSubTag" multiple> </select>
     </div>
 
+    <button id="takeTest">Take Test</button>
+
+
 
     <script>
         $(document).ready(function() {
                     $("#tagSelectDiv").hide();
                     $("#subTagSelectDiv").hide();
+                    $("#takeTest").hide();
 
-                    $("#tagSelect").click(function() {
-                        console.log("buttonClicked");
+                    $("#noOfQuestions").on('change', function(){
+                      var noOfQuestions = $("noOfQuestions").val();
+                        console.log("No Of Questions Selected is"+noOfQuestions);
                         $.ajax({
                             type: "POST",
                             url: "ca/getTags.php",
@@ -71,12 +83,21 @@
                                         $("#selectForSubTag").append('<option value="' + key + '">' + data[key] + "</option>");
                                     }
                                     $("#subTagSelectDiv").show();
-
+                                    $("#takeTest").show();
 
                                 },
 
                             });
                           });
+
+
+                          $("#takeTest").click(function(){
+                            var subTagsArray = $("#selectForSubTag").val();
+                            var noOfSubTags = subTags.length;
+                            var questionForSubTag = noOfQuestions/noOfSubTags;
+                            
+
+                          })
 
 
                             $(document).ajaxError(function() {
